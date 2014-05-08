@@ -1,0 +1,26 @@
+
+<table >
+    <thead >  
+        <tr>
+
+            <th >#</th> 
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>editar</th>
+        </tr>
+    </thead>
+    <?php
+    $count = 1;
+    foreach ($this->data as $doc)
+    {
+        ?>
+        <tr >
+            <td><?php echo $count++ ?></td>
+            <td><? echo $doc['name']; ?></td>
+            <td><? echo $doc['lastName']; ?></td>
+            <td><a href="/default/index/edit?id=<? echo  $doc['idUser']; ?>"><? echo  $doc['idUser']; ?></a></td>
+        </tr>
+    <? }
+    ?>
+
+</table>

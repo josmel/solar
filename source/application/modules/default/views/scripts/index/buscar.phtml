@@ -1,0 +1,41 @@
+
+<h1><? echo $this->hola; ?></h1>
+
+<form  accept-charset="utf-8" method="get" action="default/index/buscar">
+    <label for="q">Buscar:</label>
+    <input id="q" name="q" type="text" value=""/>
+    <input type="submit"/>
+</form>
+
+<div>Resultados <?php echo $this->start; ?> - <?php echo $this->end; ?> de <?php echo $this->total; ?>:</div>
+
+<?php
+foreach ($this->resultado as $doc)
+{
+    ?>
+        <table style="border: 1px solid black; text-align: left">
+           <tr><th>ID:</th><td><?php echo htmlspecialchars($doc->id, ENT_NOQUOTES, 'utf-8'); ?></td></tr>
+           <tr><th>ESTADO:</th><td><?php if($doc->url==1) {echo 'Activo'; }
+           else{echo  'Inactivo';} ?></td></tr>
+           <tr><th>AUTOR:</th><td><?php echo htmlspecialchars($doc->author, ENT_NOQUOTES, 'utf-8'); ?></td></tr>
+           <tr><th>PRIMER APELLIDO:</th><td><?php echo htmlspecialchars($doc->keywords, ENT_NOQUOTES, 'utf-8'); ?></td></tr>
+           <tr><th>SEGUNDO APELLIDO:</th><td><?php echo htmlspecialchars($doc->category, ENT_NOQUOTES, 'utf-8'); ?></td></tr>
+           <tr><th>HOBBY:</th>
+                <?php
+                if (count($doc->title) > 1)
+                {
+                    foreach ($doc->title as $data)
+                    {
+                        ?>
+                        <td><?php echo htmlspecialchars($data, ENT_NOQUOTES, 'utf-8'); ?></td>
+                        <?php
+                    }
+                }
+                else
+                {
+                    ?><td><?php echo htmlspecialchars($doc->title, ENT_NOQUOTES, 'utf-8'); ?></td><? }
+                ?></tr>
+        </table><br>
+    <?php
+}
+?>  
