@@ -18,8 +18,12 @@ class Application_Entity_HobbyUser extends Core_Model
 
      public function deleteUserHobby($idUser)
     {
-        $data = array('idUser' => $idUser);
-        $this->_tableHobbyUser->delete($data);
+ 
+        $where = $this->_tableHobbyUser->getAdapter()
+                          ->quoteInto('idUser = ?', $idUser);
+       $this->_tableHobbyUser->delete($where);
+
+
     }
 }
 

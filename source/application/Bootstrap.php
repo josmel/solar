@@ -21,14 +21,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             || define('STATIC_URL', $config['app']['staticUrl']);
         defined('DINAMIC_URL')
             || define('DINAMIC_URL', $config['app']['dinamicUrl']);
-        defined('IMG_URL')
-            || define('IMG_URL', $config['app']['imgUrl']);
+
         defined('SITE_URL')
             || define('SITE_URL', $config['app']['siteUrl']);
         defined('SITE_TEMP')
             || define('SITE_TEMP',$config['app']['elementTemp']);
-        defined('STATIC_ADMIN_IMG')
-            || define('STATIC_ADMIN_IMG',$config['app']['imgAdmin']);
+
         defined('ROOT_IMG_DINAMIC')
             || define('ROOT_IMG_DINAMIC',$config['app']['rootImgDinamic']);
                 

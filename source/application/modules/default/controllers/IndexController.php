@@ -39,7 +39,7 @@ class Default_IndexController extends Core_Controller_ActionDefault
                 $obj->edit = $params;
                 for ($i = 0; $i < count($params['hobby']); $i++)
                 {
-                    $objTwo->insertUserHobby($params['hobby'][$i], $id);
+                    $objTwo->insertUserHobby($params['hobby'][$i], $params['idUser']);
                 }
                 $this->indexarSolr($params, $params['idUser']);
             }
@@ -79,7 +79,7 @@ class Default_IndexController extends Core_Controller_ActionDefault
     public function indexarSolr($params, $id)
     {
 
-        $solr = new Apache_Solr_Service('localhost', 8080, '/solr/');
+        $solr = new Apache_Solr_Service('localhost', 8983, '/solr/');
         $hobby = new Application_Entity_User();
         $totalHobby = $hobby->findAll($id);
 
@@ -121,7 +121,7 @@ class Default_IndexController extends Core_Controller_ActionDefault
                 $results = false;
                 if ($query)
                 {
-                    $solr = new Apache_Solr_Service('localhost', 8080, '/solr/');
+                    $solr = new Apache_Solr_Service('localhost', 8983, '/solr/');
                     if (get_magic_quotes_gpc() == 1)
                     {
                         $query = stripslashes($query);
