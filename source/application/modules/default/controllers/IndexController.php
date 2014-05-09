@@ -55,7 +55,7 @@ class Default_IndexController extends Core_Controller_ActionDefault
     {
 
         $id = $this->_getParam('id', 0);
-        $form = new Application_Entity_UserForm();
+        $form = new Application_Entity_UserForm($id);
         if (!empty($id))
         {
             $obj = new Application_Entity_RunSql('User');
